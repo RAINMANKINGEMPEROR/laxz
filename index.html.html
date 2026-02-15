@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You — Happy Valentine's Day</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lester.css">
+</head>
+<body>
+  <div id="hearts" aria-hidden="true">
+    <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 25%; animation-delay: 1.5s;"></div>
+    <div class="heart" style="left: 50%; animation-delay: 3s;"></div>
+    <div class="heart" style="left: 75%; animation-delay: 0.8s;"></div>
+    <div class="heart" style="left: 90%; animation-delay: 2.2s;"></div>
+  </div>
+
+  <main class="page">
+    <section class="hero">
+      <div class="flower" role="img" aria-label="A rose for you">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="center"></div>
+        <div class="stem"></div>
+        <div class="leaf"></div>
+        <div class="leaf right"></div>
+      </div>
+      <h1 class="title">For You</h1>
+      <p class="subtitle">Happy Valentine's Day</p>
+    </section>
+
+    <section class="message-card">
+      <p class="message-main">
+        To the most beautiful girl in the world —
+      </p>
+      <p class="message-body">
+        Every day with you feels a little more like a gift. Thank you for being you.
+      </p>
+      <p class="message-sign">With love, always.</p>
+    </section>
+
+    <section class="reasons">
+      <h2 class="reasons-title">A few reasons you're amazing</h2>
+      <ul class="reasons-list">
+        <li>Your smile lights up the room</li>
+        <li>You make ordinary moments feel special</li>
+        <li>You're kind, strong, and endlessly surprising</li>
+        <li>You deserve the world — and more</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>Made with &hearts; for you</p>
+      <p class="hint">Click anywhere for more hearts</p>
+    </footer>
+  </main>
+
+  <script>
+    document.body.addEventListener('click', function(e) {
+      if (e.target.closest('a') || e.target.closest('button')) return;
+      var heart = document.createElement('div');
+      heart.className = 'heart heart-click';
+      heart.style.left = (e.clientX - 10) + 'px';
+      heart.style.bottom = (window.innerHeight - e.clientY) + 'px';
+      heart.style.animation = 'float 4s ease-out forwards';
+      document.getElementById('hearts').appendChild(heart);
+      setTimeout(function() { heart.remove(); }, 4000);
+    });
+  </script>
+</body>
+</html>
